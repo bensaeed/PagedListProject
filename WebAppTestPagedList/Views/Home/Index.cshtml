@@ -1,0 +1,18 @@
+﻿@using PagedList.Mvc;
+@using PagedList;
+@{
+    ViewBag.Title = "Index";
+}
+
+@*<h2>Index</h2>*@
+
+
+<link href="/Content/PagedList.css" rel="stylesheet" type="text/css" />
+<h2>List of posts</h2>
+<ul>
+    @foreach (var post in ViewBag.posts)
+    {
+        <li>@post.Title</li>
+    }
+</ul>
+@Html.PagedListPager((IPagedList)ViewBag.posts, page => Url.Action("Index", new { page }))
