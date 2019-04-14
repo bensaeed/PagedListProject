@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="db_TestModelStoreContainer" CdmEntityContainer="db_TestEntities">
+    <EntitySetMapping Name="tbl_Person">
+      <EntityTypeMapping TypeName="db_TestModel.tbl_Person">
+        <MappingFragment StoreEntitySet="tbl_Person">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="TimeNow" ColumnName="TimeNow" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_WebsiteState">
+      <EntityTypeMapping TypeName="db_TestModel.tbl_WebsiteState">
+        <MappingFragment StoreEntitySet="tbl_WebsiteState">
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Action">
+      <EntityTypeMapping TypeName="db_TestModel.tbl_Action">
+        <MappingFragment StoreEntitySet="tbl_Action">
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="HostName" ColumnName="HostName" />
+          <ScalarProperty Name="IP_Address" ColumnName="IP_Address" />
+          <ScalarProperty Name="Device" ColumnName="Device" />
+          <ScalarProperty Name="Browser" ColumnName="Browser" />
+          <ScalarProperty Name="DateSystem" ColumnName="DateSystem" />
+          <ScalarProperty Name="ActionTime" ColumnName="ActionTime" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

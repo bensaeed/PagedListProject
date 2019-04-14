@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="db_TestModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tbl_Person">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TimeNow" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="db_TestEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tbl_Person" EntityType="Self.tbl_Person" />
+    <EntitySet Name="tbl_WebsiteState" EntityType="db_TestModel.tbl_WebsiteState" />
+    <EntitySet Name="tbl_Action" EntityType="db_TestModel.tbl_Action" />
+  </EntityContainer>
+  <EntityType Name="tbl_WebsiteState">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="State" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_Action">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ActionTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DateSystem" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Browser" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Device" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="IP_Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="HostName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Country" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+  </EntityType>
+</Schema>

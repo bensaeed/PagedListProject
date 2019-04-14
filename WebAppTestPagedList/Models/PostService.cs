@@ -41,7 +41,8 @@ namespace WebAppTestPagedList.Models
         {
             totalCount = posts.Count();
             return posts
-            .OrderBy(row => row.Id).Skip(page * recordsPerPage).Take(recordsPerPage); // in real projects change like this .skip(()=>resultforSkip).Take(()=>recordsPerPage )
+            .OrderBy(row => row.Id)
+            .Skip(page * recordsPerPage).Take(recordsPerPage); // in real projects change like this .skip(()=>resultforSkip).Take(()=>recordsPerPage )
         }
     }
 }
