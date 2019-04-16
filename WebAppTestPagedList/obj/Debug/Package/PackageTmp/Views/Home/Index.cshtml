@@ -2,6 +2,7 @@
 @using PagedList;
 @{
     ViewBag.Title = "Index";
+    var strInfo = (string)ViewBag.MyInfo;
 }
 
 @*<h2>Index</h2>*@
@@ -16,3 +17,8 @@
     }
 </ul>
 @Html.PagedListPager((IPagedList)ViewBag.posts, page => Url.Action("Index", new { page }))
+
+<br /><br /><br /><br />
+<p>
+   Location Info : @strInfo
+</p>

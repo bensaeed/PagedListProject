@@ -27,6 +27,7 @@ namespace WebAppTestPagedList.Database
     
         public virtual DbSet<tbl_Person> tbl_Person { get; set; }
         public virtual DbSet<tbl_WebsiteState> tbl_WebsiteState { get; set; }
+        public virtual DbSet<tbl_Post> tbl_Post { get; set; }
         public virtual DbSet<tbl_Action> tbl_Action { get; set; }
     }
 }

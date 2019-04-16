@@ -23,16 +23,25 @@ namespace WebAppTestPagedList.Controllers
         [VisiteLog]
         public ActionResult Index(int? page)
         {
-            addData();
+            //addData();
             var pageNumber = page ?? 1;
             var posts = PostService.GetAll();
             var result = posts.ToPagedList(pageNumber, 10);
             ViewBag.posts = result;
+
+            var info = _db.tbl_Action.ToList().LastOrDefault();
+            string LicationInfo =  
+                info.countryCode==null ? "":info.countryCode +
+                " : " + info.Country==null ? "":info.Country + " : " +
+                info.region == null ? "" : info.region+ " : " +
+                info.regionName == null ? "" :info.regionName  +" : " + 
+                info.city  == null ? "": info.city + " : ";
+            ViewBag.MyInfo =LicationInfo ;
             return View();
         }
         public ActionResult IndexExample2(int? page)
         {
-            addData();
+            //addData();
             var pageIndex = (page ?? 1) - 1;
             var pageSize = 10;
             int totalPostCount;
@@ -43,19 +52,22 @@ namespace WebAppTestPagedList.Controllers
         }
         public void addData()
         {
-            var newItem = new tbl_Person
+            for (int i = 1; i <= 100; i++)
             {
-                FirstName = "Mohammad",
-                LastName = "bensaeed",
-                TimeNow = DateTime.Now.ToShortTimeString()
-            };
-            _db.tbl_Person.Add(newItem);
+                var newItem = new tbl_Post
+                {
+                    Title = "Mohammad",
+                    Body = "bensaeed"
+                };
+                _db.tbl_Post.Add(newItem);
+            }
             _db.SaveChanges();
         }
 
-        
-        public  ActionResult DownWeb()
+
+        public ActionResult DownWeb()
         {
+
             return View();
         }
     }

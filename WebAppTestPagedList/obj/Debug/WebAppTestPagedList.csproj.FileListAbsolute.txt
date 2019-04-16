@@ -101,7 +101,7 @@ D:\Test Project\PagedListProject\WebAppTestPagedList\bin\EntityFramework.dll
 D:\Test Project\PagedListProject\WebAppTestPagedList\bin\EntityFramework.SqlServer.dll
 D:\Test Project\PagedListProject\WebAppTestPagedList\bin\EntityFramework.xml
 D:\Test Project\PagedListProject\WebAppTestPagedList\bin\EntityFramework.SqlServer.xml
-D:\Test Project\PagedListProject\WebAppTestPagedList\obj\Debug\WebAppTestPagedList.csprojResolveAssemblyReference.cache
 D:\Test Project\PagedListProject\WebAppTestPagedList\bin\Newtonsoft.Json.dll
 D:\Test Project\PagedListProject\WebAppTestPagedList\bin\Newtonsoft.Json.pdb
 D:\Test Project\PagedListProject\WebAppTestPagedList\bin\Newtonsoft.Json.xml
+D:\Test Project\PagedListProject\WebAppTestPagedList\obj\Debug\WebAppTestPagedList.csprojResolveAssemblyReference.cache

@@ -4,15 +4,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Web;
-using System.Web.Mvc;
 using WebAppTestPagedList.Database;
 using WebAppTestPagedList.Models;
-namespace WebAppTestPagedList.Attributes
+
+namespace WebAppTestPagedList
 {
-    public class VisiteLogAttribute : ActionFilterAttribute
+    public class GetVisitLog
     {
         db_TestEntities _db = new db_TestEntities();
-        public override void OnActionExecuting(ActionExecutingContext filterContext)
+        public void StartOperation()
         {
             string CurrentClientIP = ClientIPaddress();
             //GetLocationIPINFO(CurrentClientIP);
@@ -57,8 +57,12 @@ namespace WebAppTestPagedList.Attributes
             //persianDateTimeNow.EnglishNumber = true;
             return persianDateTimeNow.ToString("yyyy/MM/dd");
         }
+       
         private string ClientIPaddress()
         {
+
+           
+
             //var ip = System.Net.Dns.GetHostEntry(System.Net.Dns.GetHostName()).AddressList.GetValue(0).ToString();
             string ipAddress = "";
             ipAddress = System.Web.HttpContext.Current.Request.ServerVariables["HTTP_X_FORWARDED_FOR"];
@@ -66,6 +70,9 @@ namespace WebAppTestPagedList.Attributes
             {
                 ipAddress = System.Web.HttpContext.Current.Request.ServerVariables["REMOTE_ADDR"];
             }
+
+            //var context = ((HttpApplication)source).Context;
+            //ipAddress = context.Request.UserHostAddress;
             return ipAddress;
         }
         private string ClientDeviceType()
@@ -100,20 +107,6 @@ namespace WebAppTestPagedList.Attributes
             }
             return strHostName;
         }
-        IPDataIPAPI ipInfo;//= new IPDataIPAPI();
-        private void GetLocationIPINFO(string ipaddress)
-        {
-            ipInfo = new IPDataIPAPI();
-            try
-            {
-                string strResponse = new WebClient().DownloadString("http://ipinfo.io/" + ipaddress);
-                ipInfo = JsonConvert.DeserializeObject<IPDataIPAPI>(strResponse);
-            }
-            catch (Exception)
-            {
-            }
-
-        }
         InfoIP NewInfoIF;
         private void GetLocationIPINFOFrom_IpApi(string ipaddress)
         {
@@ -129,31 +122,6 @@ namespace WebAppTestPagedList.Attributes
             }
 
         }
-        private void GetLocationIPINFOTemp(string ipaddress)
-        {
-            ipInfo = new IPDataIPAPI();
-            //var url = "http://freegeoip.net/json/" + ClientIPaddress();
-            //var request = System.Net.WebRequest.Create(url);
-            //string strdata="";
-            try
-            {
-
-                string strResponse = new WebClient().DownloadString("http://ipinfo.io/" + ipaddress);
-                //if (strResponse == null || strResponse == "") return "";
-                ipInfo = JsonConvert.DeserializeObject<IPDataIPAPI>(strResponse);
-                //if (ipInfo == null || ipInfo.ip == null || ipInfo.ip == "") return "";
-                //else return ipInfo.city + "; " + ipInfo.region + "; " + ipInfo.country + "; " + ipInfo.postal;
-                //strdata = ipInfo.@as + " ** " + ipInfo.city + " ** " + ipInfo.country + " ** " + ipInfo.countryCode + " ** " + ipInfo.isp + " ** " +
-                //      ipInfo.lat + " ** " + ipInfo.lon + " ** " + ipInfo.org + " ** " +
-                //      ipInfo.query + " ** " + ipInfo.region + " ** " + ipInfo.regionName + " ** " +
-                //      ipInfo.status + " ** " + ipInfo.timezone + " ** " +
-                //      ipInfo.zip + " *Company ::* "+ ipInfo.company  + " ** ";
-            }
-            catch (Exception)
-            {
-                // return "";
-            }
-            //return strdata;
-        }
+        
     }
 }

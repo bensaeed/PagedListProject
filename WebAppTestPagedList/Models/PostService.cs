@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using WebAppTestPagedList.Database;
 
 namespace WebAppTestPagedList.Models
 {
@@ -32,10 +33,10 @@ namespace WebAppTestPagedList.Models
             new Post{Id=22,Title="Title 22",Body="Body 22"},
             };
 
-        public static IEnumerable<Post> GetAll()
+        public static IEnumerable<tbl_Post> GetAll()
         {
-            return posts
-            .OrderBy(row => row.Id);
+            db_TestEntities _db = new db_TestEntities();
+            return _db.tbl_Post.OrderBy(row => row.id);
         }
         public static IEnumerable<Post> GetAll(int page, int recordsPerPage, out int totalCount)
         {

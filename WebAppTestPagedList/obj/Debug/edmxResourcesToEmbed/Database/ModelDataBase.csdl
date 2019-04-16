@@ -12,6 +12,7 @@
   <EntityContainer Name="db_TestEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="tbl_Person" EntityType="Self.tbl_Person" />
     <EntitySet Name="tbl_WebsiteState" EntityType="db_TestModel.tbl_WebsiteState" />
+    <EntitySet Name="tbl_Post" EntityType="db_TestModel.tbl_Post" />
     <EntitySet Name="tbl_Action" EntityType="db_TestModel.tbl_Action" />
   </EntityContainer>
   <EntityType Name="tbl_WebsiteState">
@@ -20,6 +21,14 @@
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" />
     <Property Name="State" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_Post">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Body" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="tbl_Action">
     <Key>
@@ -32,6 +41,23 @@
     <Property Name="Device" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
     <Property Name="IP_Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="HostName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-    <Property Name="Country" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Country" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="countryCode" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="region" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="regionName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="city" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="zip" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="lat" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="lon" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="timezone" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="isp" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="org" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="asn" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="query" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="district" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="reverse" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="mobile" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="proxy" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
   </EntityType>
 </Schema>

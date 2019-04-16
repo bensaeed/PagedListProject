@@ -11,7 +11,24 @@
     <Property Name="Device" Type="nvarchar" MaxLength="500" />
     <Property Name="IP_Address" Type="nvarchar" MaxLength="50" />
     <Property Name="HostName" Type="nvarchar" MaxLength="500" />
-    <Property Name="Country" Type="nvarchar" MaxLength="500" />
+    <Property Name="Status" Type="nvarchar" MaxLength="150" />
+    <Property Name="Country" Type="nvarchar" MaxLength="250" />
+    <Property Name="countryCode" Type="nvarchar" MaxLength="150" />
+    <Property Name="region" Type="nvarchar" MaxLength="150" />
+    <Property Name="regionName" Type="nvarchar" MaxLength="150" />
+    <Property Name="city" Type="nvarchar" MaxLength="150" />
+    <Property Name="zip" Type="nvarchar" MaxLength="150" />
+    <Property Name="lat" Type="nvarchar" MaxLength="150" />
+    <Property Name="lon" Type="nvarchar" MaxLength="150" />
+    <Property Name="timezone" Type="nvarchar" MaxLength="150" />
+    <Property Name="isp" Type="nvarchar" MaxLength="150" />
+    <Property Name="org" Type="nvarchar" MaxLength="150" />
+    <Property Name="asn" Type="nvarchar" MaxLength="150" />
+    <Property Name="query" Type="nvarchar" MaxLength="150" />
+    <Property Name="district" Type="nvarchar" MaxLength="150" />
+    <Property Name="reverse" Type="nvarchar" MaxLength="150" />
+    <Property Name="mobile" Type="char" MaxLength="1" />
+    <Property Name="proxy" Type="char" MaxLength="1" />
   </EntityType>
   <EntityType Name="tbl_Person">
     <Key>
@@ -21,6 +38,14 @@
     <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
     <Property Name="LastName" Type="nvarchar" MaxLength="50" />
     <Property Name="TimeNow" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbl_Post">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="150" />
+    <Property Name="Body" Type="nvarchar" MaxLength="250" />
   </EntityType>
   <EntityType Name="tbl_WebsiteState">
     <Key>
@@ -32,6 +57,7 @@
   <EntityContainer Name="db_TestModelStoreContainer">
     <EntitySet Name="tbl_Action" EntityType="Self.tbl_Action" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbl_Person" EntityType="Self.tbl_Person" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Post" EntityType="Self.tbl_Post" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbl_WebsiteState" EntityType="Self.tbl_WebsiteState" Schema="dbo" store:Type="Tables" />
   </EntityContainer>
 </Schema>

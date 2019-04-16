@@ -16,7 +16,24 @@
           <Property Name="Device" Type="nvarchar" MaxLength="500" />
           <Property Name="IP_Address" Type="nvarchar" MaxLength="50" />
           <Property Name="HostName" Type="nvarchar" MaxLength="500" />
-          <Property Name="Country" Type="nvarchar" MaxLength="500" />
+          <Property Name="Status" Type="nvarchar" MaxLength="150" />
+          <Property Name="Country" Type="nvarchar" MaxLength="250" />
+          <Property Name="countryCode" Type="nvarchar" MaxLength="150" />
+          <Property Name="region" Type="nvarchar" MaxLength="150" />
+          <Property Name="regionName" Type="nvarchar" MaxLength="150" />
+          <Property Name="city" Type="nvarchar" MaxLength="150" />
+          <Property Name="zip" Type="nvarchar" MaxLength="150" />
+          <Property Name="lat" Type="nvarchar" MaxLength="150" />
+          <Property Name="lon" Type="nvarchar" MaxLength="150" />
+          <Property Name="timezone" Type="nvarchar" MaxLength="150" />
+          <Property Name="isp" Type="nvarchar" MaxLength="150" />
+          <Property Name="org" Type="nvarchar" MaxLength="150" />
+          <Property Name="asn" Type="nvarchar" MaxLength="150" />
+          <Property Name="query" Type="nvarchar" MaxLength="150" />
+          <Property Name="district" Type="nvarchar" MaxLength="150" />
+          <Property Name="reverse" Type="nvarchar" MaxLength="150" />
+          <Property Name="mobile" Type="char" MaxLength="1" />
+          <Property Name="proxy" Type="char" MaxLength="1" />
         </EntityType>
         <EntityType Name="tbl_Person">
           <Key>
@@ -26,6 +43,14 @@
           <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
           <Property Name="LastName" Type="nvarchar" MaxLength="50" />
           <Property Name="TimeNow" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbl_Post">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="150" />
+          <Property Name="Body" Type="nvarchar" MaxLength="250" />
         </EntityType>
         <EntityType Name="tbl_WebsiteState">
           <Key>
@@ -37,6 +62,7 @@
         <EntityContainer Name="db_TestModelStoreContainer">
           <EntitySet Name="tbl_Action" EntityType="Self.tbl_Action" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_Person" EntityType="Self.tbl_Person" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Post" EntityType="Self.tbl_Post" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_WebsiteState" EntityType="Self.tbl_WebsiteState" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -55,6 +81,7 @@
         <EntityContainer Name="db_TestEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="tbl_Person" EntityType="Self.tbl_Person" />
           <EntitySet Name="tbl_WebsiteState" EntityType="db_TestModel.tbl_WebsiteState" />
+          <EntitySet Name="tbl_Post" EntityType="db_TestModel.tbl_Post" />
           <EntitySet Name="tbl_Action" EntityType="db_TestModel.tbl_Action" />
         </EntityContainer>
         <EntityType Name="tbl_WebsiteState">
@@ -63,6 +90,14 @@
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" />
           <Property Name="State" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_Post">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Body" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="tbl_Action">
           <Key>
@@ -75,7 +110,24 @@
           <Property Name="Device" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="IP_Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="HostName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="Country" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Country" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="countryCode" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="region" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="regionName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="city" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="zip" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="lat" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="lon" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="timezone" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="isp" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="org" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="asn" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="query" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="district" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="reverse" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="mobile" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="proxy" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -101,10 +153,36 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Post">
+            <EntityTypeMapping TypeName="db_TestModel.tbl_Post">
+              <MappingFragment StoreEntitySet="tbl_Post">
+                <ScalarProperty Name="Body" ColumnName="Body" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="tbl_Action">
             <EntityTypeMapping TypeName="db_TestModel.tbl_Action">
               <MappingFragment StoreEntitySet="tbl_Action">
+                <ScalarProperty Name="proxy" ColumnName="proxy" />
+                <ScalarProperty Name="mobile" ColumnName="mobile" />
+                <ScalarProperty Name="reverse" ColumnName="reverse" />
+                <ScalarProperty Name="district" ColumnName="district" />
+                <ScalarProperty Name="query" ColumnName="query" />
+                <ScalarProperty Name="asn" ColumnName="asn" />
+                <ScalarProperty Name="org" ColumnName="org" />
+                <ScalarProperty Name="isp" ColumnName="isp" />
+                <ScalarProperty Name="timezone" ColumnName="timezone" />
+                <ScalarProperty Name="lon" ColumnName="lon" />
+                <ScalarProperty Name="lat" ColumnName="lat" />
+                <ScalarProperty Name="zip" ColumnName="zip" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="regionName" ColumnName="regionName" />
+                <ScalarProperty Name="region" ColumnName="region" />
+                <ScalarProperty Name="countryCode" ColumnName="countryCode" />
                 <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="HostName" ColumnName="HostName" />
                 <ScalarProperty Name="IP_Address" ColumnName="IP_Address" />
                 <ScalarProperty Name="Device" ColumnName="Device" />

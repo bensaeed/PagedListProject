@@ -19,10 +19,36 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Post">
+      <EntityTypeMapping TypeName="db_TestModel.tbl_Post">
+        <MappingFragment StoreEntitySet="tbl_Post">
+          <ScalarProperty Name="Body" ColumnName="Body" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="tbl_Action">
       <EntityTypeMapping TypeName="db_TestModel.tbl_Action">
         <MappingFragment StoreEntitySet="tbl_Action">
+          <ScalarProperty Name="proxy" ColumnName="proxy" />
+          <ScalarProperty Name="mobile" ColumnName="mobile" />
+          <ScalarProperty Name="reverse" ColumnName="reverse" />
+          <ScalarProperty Name="district" ColumnName="district" />
+          <ScalarProperty Name="query" ColumnName="query" />
+          <ScalarProperty Name="asn" ColumnName="asn" />
+          <ScalarProperty Name="org" ColumnName="org" />
+          <ScalarProperty Name="isp" ColumnName="isp" />
+          <ScalarProperty Name="timezone" ColumnName="timezone" />
+          <ScalarProperty Name="lon" ColumnName="lon" />
+          <ScalarProperty Name="lat" ColumnName="lat" />
+          <ScalarProperty Name="zip" ColumnName="zip" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="regionName" ColumnName="regionName" />
+          <ScalarProperty Name="region" ColumnName="region" />
+          <ScalarProperty Name="countryCode" ColumnName="countryCode" />
           <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
           <ScalarProperty Name="HostName" ColumnName="HostName" />
           <ScalarProperty Name="IP_Address" ColumnName="IP_Address" />
           <ScalarProperty Name="Device" ColumnName="Device" />

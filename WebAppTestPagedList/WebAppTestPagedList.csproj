@@ -200,12 +200,17 @@
     <Compile Include="Database\tbl_Person.cs">
       <DependentUpon>ModelDataBase.tt</DependentUpon>
     </Compile>
+    <Compile Include="Database\tbl_Post.cs">
+      <DependentUpon>ModelDataBase.tt</DependentUpon>
+    </Compile>
     <Compile Include="Database\tbl_WebsiteState.cs">
       <DependentUpon>ModelDataBase.tt</DependentUpon>
     </Compile>
+    <Compile Include="Helper\GetVisitLog.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\InfoIP.cs" />
     <Compile Include="Models\IPDataIPAPI.cs" />
     <Compile Include="Models\Post.cs" />
     <Compile Include="Models\PostService.cs" />
