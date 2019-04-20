@@ -10,7 +10,7 @@ using WebAppTestPagedList.Attributes;
 
 namespace WebAppTestPagedList.Controllers
 {
-    [My]
+    
     public class HomeController : Controller
     {
         //Learn Link From :
@@ -21,6 +21,7 @@ namespace WebAppTestPagedList.Controllers
 
 
         [VisiteLog]
+        [My]
         public ActionResult Index(int? page)
         {
             //addData();

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using WebAppTestPagedList.Helper;
 
 namespace WebAppTestPagedList
 {
@@ -15,19 +16,21 @@ namespace WebAppTestPagedList
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            LogSetting.FirstRequest = 0;
         }
         protected void Application_BeginRequest()
         {
-objGetVisitLog.StartOperation();
+            if (LogSetting.FirstRequest==0)
+            {
+                LogSetting.FirstRequest = 1;
+                objGetVisitLog.StartOperation();
+            }
+
         }
         protected void Application_End()
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-
-            
-
-
         }
     }
 
